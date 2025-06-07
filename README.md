@@ -1,2 +1,46 @@
-# GI-DOAEnet
-Under review.
+# Geometry-Invariant DOA Estimation Network
+This repository contains the model code and pretrained weights for "_DNN-based Geometry-Invariant DOA Estimation with Microphone Positional Encoding and Complexity Gradual Training_" [[1]](#reference-1).
+
+<img src="./figures/architecture.jpg" alt="Overall architecture" width="600"/>
+
+Overall architecture of Geometry-Invariant DOA Estimation Network (GI-DOAEnet) with Microphone Positional Encoding (MPE). With $C$-channel signals and the coordinates of microphones, the geometry-invariant network structure estimates the azimuth.
+
+## Microphone Positional Encoding (MPE)
+$$\mathbf{v}=\frac{4}{M} \left[ 0, 1, \cdots, \frac{M}{4}-1 \right]^{\top}\in \mathbb{R}^{\frac{M}{4}}$$
+- **Phase Modulation (PM)**:
+$$
+\mathcal{P}_{c}^{\mathrm{PM}} = \alpha \, r_{c} \, \begin{bmatrix}
+\cos (2\pi \, \beta \, \mathbf{v}+\theta_{c}) \\
+\sin (2\pi \, \beta \, \mathbf{v}+\theta_{c}) \\
+\cos (2\pi \, \beta \, \mathbf{v}+\phi_{c}) \\
+\sin (2\pi \, \beta \, \mathbf{v}+\phi_{c})
+\end{bmatrix}
+$$
+- **Frequency Modulation (FM)**:
+$$
+\mathcal{P}_{c}^{\mathrm{FM}}=\alpha \, r_{c} \, \begin{bmatrix}
+\cos (\theta_{c} \, \beta \, \mathbf{v}) \\
+\sin (\theta_{c} \,\beta \,  \mathbf{v}) \\
+\cos (\phi_{c} \, \beta \, \mathbf{v}) \\
+\sin (\phi_{c} \, \beta \, \mathbf{v})
+\end{bmatrix}
+$$
+
+$M$ is the latent feature size. $r_{c}$, $\theta_{c}$, and $\phi_{c}$ are the distance, azimuth, and elevation angles of the $c$-th microphone, respectively. $\alpha$ is a amplitude scaling factor, and $\beta$ is a frequency scaling factor. $\mathcal{P}_{c}^{\mathrm{PM}}$ and $\mathcal{P}_{c}^{\mathrm{FM}}$ are the positional encodings of the $c$-th microphone with PM and FM, respectively.
+
+## Running the Code
+You can infer the code by running by **python inference.py**. You can change the MPE type between **FM** and **PM** in the Python file.\
+If you want to check the FLOPS and parameters of the model, uncomment the "count_flops_and_params" function in line 79 and change the device to "cpu".
+
+## Examples
+<img src="./spectrum_plots/FM/10ch_0.png" alt="FM 10ch 0" width="300"/>
+
+FM example with 10 channels and 1 speaker.
+
+<img src="./spectrum_plots/PM/4ch_1.png" alt="PM 10ch 0" width="300"/>
+
+PM example with 4 channels and 2 speakers.
+
+## References
+<a name="reference-1"></a>
+[1]  M.-S. Baek, J.-H. Chang and I. Cohen "DNN-based Geometry-Invariant DOA Estimation with Microphone Positional Encoding and Complexity Gradual Training," _IEEE Trans. Audio., Speech, Lang. Process._, 2025, doi: [10.1109/TASLPRO.2025.3577336](https://doi.org/10.1109/TASLPRO.2025.3577336).
