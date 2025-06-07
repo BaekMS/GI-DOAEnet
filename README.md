@@ -6,25 +6,14 @@ This repository contains the model code and pretrained weights for "_DNN-based G
 Overall architecture of Geometry-Invariant DOA Estimation Network (GI-DOAEnet) with Microphone Positional Encoding (MPE). With $C$-channel signals and the coordinates of microphones, the geometry-invariant network structure estimates the azimuth.
 
 ## Microphone Positional Encoding (MPE)
-$$\mathbf{v}=\frac{4}{M} \left[ 0, 1, \cdots, \frac{M}{4}-1 \right]^{\top}\in \mathbb{R}^{\frac{M}{4}}$$
+
+<img src="./figures/v_eq.png" alt="v_eq">
+
 - **Phase Modulation (PM)**:
-$$
-\mathcal{P}_{c}^{\mathrm{PM}} = \alpha \, r_{c} \, \begin{bmatrix}
-\cos (2\pi \, \beta \, \mathbf{v}+\theta_{c}) \\
-\sin (2\pi \, \beta \, \mathbf{v}+\theta_{c}) \\
-\cos (2\pi \, \beta \, \mathbf{v}+\phi_{c}) \\
-\sin (2\pi \, \beta \, \mathbf{v}+\phi_{c})
-\end{bmatrix}
-$$
+<img src="./figures/PM_eq.png" alt="PM_eq">
+
 - **Frequency Modulation (FM)**:
-$$
-\mathcal{P}_{c}^{\mathrm{FM}}=\alpha \, r_{c} \, \begin{bmatrix}
-\cos (\theta_{c} \, \beta \, \mathbf{v}) \\
-\sin (\theta_{c} \,\beta \,  \mathbf{v}) \\
-\cos (\phi_{c} \, \beta \, \mathbf{v}) \\
-\sin (\phi_{c} \, \beta \, \mathbf{v})
-\end{bmatrix}
-$$
+<img src="./figures/FM_eq.png" alt="FM_eq">
 
 $M$ is the latent feature size. $r_{c}$, $\theta_{c}$, and $\phi_{c}$ are the distance, azimuth, and elevation angles of the $c$-th microphone, respectively. $\alpha$ is a amplitude scaling factor, and $\beta$ is a frequency scaling factor. $\mathcal{P}_{c}^{\mathrm{PM}}$ and $\mathcal{P}_{c}^{\mathrm{FM}}$ are the positional encodings of the $c$-th microphone with PM and FM, respectively.
 
