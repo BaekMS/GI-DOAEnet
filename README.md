@@ -25,11 +25,11 @@ If you want to check the FLOPS and parameters of the model, uncomment the "count
 <table>
   <tr>
     <td align="center">
-      <img src="./spectrum_plots/FM/10ch_0.png" alt="FM 10ch 0" width="200"/><br/>
+      <img src="./spectrum_plots/FM/10ch_0.png" alt="FM 10ch 0" width="500"/><br/>
       FM example with 10 channels and 1 speaker.
     </td>
     <td align="center">
-      <img src="./spectrum_plots/PM/4ch_1.png" alt="PM 10ch 0" width="200"/><br/>
+      <img src="./spectrum_plots/PM/4ch_1.png" alt="PM 10ch 0" width="500"/><br/>
       PM example with 4 channels and 2 speakers.
     </td>
   </tr>
