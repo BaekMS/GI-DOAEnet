@@ -37,4 +37,4 @@ If you want to check the FLOPS and parameters of the model, uncomment the "count
 
 ## References
 <a name="reference-1"></a>
-[1]  M.-S. Baek, J.-H. Chang and I. Cohen "DNN-based Geometry-Invariant DOA Estimation with Microphone Positional Encoding and Complexity Gradual Training," _IEEE Trans. Audio., Speech, Lang. Process._, 2025, doi: [10.1109/TASLPRO.2025.3577336](https://doi.org/10.1109/TASLPRO.2025.3577336).
+[1]  M.-S. Baek, J.-H. Chang and I. Cohen "DNN-based Geometry-Invariant DOA Estimation with Microphone Positional Encoding and Complexity Gradual Training," _IEEE Trans. Audio., Speech, Lang. Process._, vol. 33, pp. 2360-2376, 2025, doi: [10.1109/TASLPRO.2025.3577336](https://doi.org/10.1109/TASLPRO.2025.3577336).
