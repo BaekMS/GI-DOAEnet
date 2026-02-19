@@ -18,7 +18,12 @@ Overall architecture of Geometry-Invariant DOA Estimation Network (GI-DOAEnet) w
 $M$ is the latent feature size. $r_{c}$, $\theta_{c}$, and $\phi_{c}$ are the distance, azimuth, and elevation angles of the $c$-th microphone, respectively. $\alpha$ is a amplitude scaling factor, and $\beta$ is a frequency scaling factor.
 
 ## Running the Code
-You can infer the code by running by **python inference.py**. You can change the MPE type between **FM** and **PM** in the Python file.\
+You can infer the code with
+
+```sh
+python inference.py
+```
+You can change the MPE type between **FM** and **PM** in the Python file.\
 If you want to check the FLOPS and parameters of the model, uncomment the "count_flops_and_params" function in line 79 and change the device to "cpu".
 
 ## Examples
