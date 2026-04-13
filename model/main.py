@@ -47,7 +47,7 @@ class GI_DOAEnet(torch.nn.Module):
 
         self.gammas = [2.5, 2.5, 2.5]
 
-    def forward(self, x, mic_coordinate, vad=None, polar_position=None, return_target=False):
+    def forward(self, x, mic_coordinate, vad=None, spherical_position=None, return_target=False):
         
         # STFT
         x_stft_r, x_stft_i=self.STFT(x, cplx=True)
@@ -67,7 +67,7 @@ class GI_DOAEnet(torch.nn.Module):
         
         if return_target:
             vad_framed = self.STFT.get_vad_framed(vad)  
-            target = target_spatial_spectrum(polar_position, vad_framed, self.SSMBs.degree_candidate, self.gammas)  # B, DS, Degree, T 
+            target = target_spatial_spectrum(spherical_position, vad_framed, self.SSMBs.degree_candidate, self.gammas)  # B, DS, Degree, T 
 
             return x_out, target  
         else:

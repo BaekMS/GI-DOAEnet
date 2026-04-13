@@ -61,14 +61,14 @@ def inference(model, device):
             input_audio = to_tensor(data['input_audio'], device)  
             vad = to_tensor(data['vad'], device)
             mic_coordinate = to_tensor(data['mic_coordinate'], device)
-            polar_position = to_tensor(data['polar_position'], device) 
+            spherical_position = to_tensor(data['spherical_position'], device)
 
             # Forward pass through the model
             output, target = model(
                 input_audio,
                 mic_coordinate,
                 vad,
-                polar_position,                
+                spherical_position,                
                 return_target=True
             )
             data_path = data_path.split('/')
